@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ER Utilization Introduction</title>
+<style>
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:250px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:800px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Emergency Rooms - Who uses them and Why ?</h1>
+</header>
+
+<nav>
+<a href = "index.html">Introduction </a> <br>
+<a href = "demographics.html">General Demographics </a><br>
+<a href = "/gender.html">Gender Specific Analyses</a> <br>
+<a href = "/age.html">Age Specific Analyses</a> <br>
+<a href = "/race.html">Race / Ethnicity Specific Analyses</a> <br>
+<a href = "/erservice.html">ER Services and Visit Duration</a> <br>
+<a href= "/models.html">ER Admissions : Predictive Models</a> <br>
+</nav>
+
+<section>
+<h1>Race and Ethnicity Specific Analyses </h1>
+<p> For the purposes of identifying race, we used categories consistent with US census. So an individuals categorized by race only have reported themselves to be non-hispanic, while race was not factored in for individuals categorized as hispanic. We also chose to exclude the approximately 9% of patients for whom neither race nor ethnicity was provided. Unfortunately, this does introduce some error into our analyses.</p>
+
+<h3>Race Differences in ER Visits</h3>
+<p>Across all races/ethnicities, more women than men tended to use ER services. 
+<img src = "/img/VisitsByRace.jpeg"> </p>
+<p> Globally we can see that Blacks/African Americans are close to 2x as likely to visit the ER than other races, while Caucasian(White) and Asians are less likely. Though these findings are significant, they are is confounded by the large percentage of patients in this survey who chose not to identify their race and/or ethnicity (not shown).  
+<img src = "/img/VisitsByRace.jpg"> </p>
+
+<h3>Race Differences in Arrival By EMS</h3>
+<p> Race doesn't seem to be a dramatic factor in whether or not a patient arrives by EMS. Unfortunately as one can see that the percentages don't add up to 1, there is a lot of missing information that may mask or skew any trends.   
+<img src = "/img/EMSByRace.jpeg"> </p>
+
+
+<h3>Race Differences in Hospital Admissions</h3>
+<p> <p>Looking at this data, it seems that Asians and Whites are more likely to be admitted to the hospital after an ER visit than any other racial group. This may be because Asians only tend to go to the ER for the most severe symptoms and thus are more likely to be admitted. Verifying that hypothesis is beyond the scope of this project 
+<img src = "/img/AdmitByRace.jpeg"> </p>
+
+
+</section>
+
+<footer>
+<b>Vidya Bhalodia
+CSCI 107 - 2016 </b>
+</footer>
+
+</body></html>
