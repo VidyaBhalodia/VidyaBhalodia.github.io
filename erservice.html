@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ER Utilization Introduction</title>
+<style>
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:250px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:800px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Emergency Rooms - Who uses them and Why ?</h1>
+</header>
+
+<nav>
+<a href = "index.html">Introduction </a> <br>
+<a href = "demographics.html">General Demographics </a><br>
+<a href = "/gender.html">Gender Specific Analyses</a> <br>
+<a href = "/age.html">Age Specific Analyses</a> <br>
+<a href = "/race.html">Race / Ethnicity Specific Analyses</a> <br>
+<a href = "/erservice.html">ER Services and Visit Duration</a> <br>
+<a href= "/models.html">ER Admissions : Predictive Models</a> <br>
+</nav>
+
+<section>
+<h1> Wait Times and ER Services  </h1>
+
+<p>Now that we know who is going to our ER and Why they are going there, we will take a look at what happens when they get there. For the purposes of our analyses, we are going to choose the top 12 most common diagnoses for adult men/women (age > 18) and look at the wait times / length of visit times involved. </p>
+
+<h3>Distribution of Wait Times </h3>
+<p><img src = "/img/WaitTime.jpeg">
+We performed a 2 tailed t-test on wait times by gender for each symptom. The only complaint where there was a statistically difference between genders, was for back symptoms. The significance in this case may be mitigated by the fact that we were making multiple comparisons. .
+<img src = "/img/WaitTimeStats.jpg"> </p>
+
+<h3>Distribution of Length of Visit (LOV) </h3>
+<p>  <img src = "/img/LOV.jpeg">
+Aside from patients presenting with back symptoms where females tended to have longer visits than males, there does not seem to be any systematic or statistically significant gender-based differences in length of visit times for ER patients. 
+<img src = "/img/LOVStats.jpg"> </p>
+
+<h3># of Medicines Administered in the ER</h3>
+<p> <img src = "/img/Meds.jpeg"> 
+There does not seem to be any systematic gender-based differences in number of medications administered to ER patients. While some complaints (eg pregancy problems) had fewer medicines administered than others (shortness of breath), the high variability meant that none of these differences were statistically significant.
+<img src = "/img/MedsStats.jpg"> </p>
+
+<h3># of Diagnostic Tests in the ER</h3>
+<p> <img src = "/img/Diags.jpeg"> 
+There does not seem to be any systematic gender-based differences in number of diagnostic tests performed on ER patients. The one exception to this was women who presented with certain uncategorized pain symptoms - who had a median of 4 tests done, while men had a median of 2 tests performed. There were some differences in the average number of tests performed for certain complaints (eg average of 1 test for back pain, vs 6 for chest pain).
+<img src = "/img/DiagStats.jpg"> </p>
+
+<h3># of Procedures Performed in the ER</h3>
+<p> <img src = "/img/Procs.jpeg"> 
+There does not seem to be any systematic gender-based differences in number of procedures performed on ER patients. The one exception to this was women who presented with certain uncategorized pain symptoms - who had a median of 1 procedure performed, while men had a median of 0 procedures. 
+<img src = "/img/ProcStats.jpg"> </p>
+
+<h2> Correlations </h2>
+<p>Now we will look at the relationship between length of visit and various treatments in the ER (medicines administered, diagnostic tests run, procedures performed)</p>
+
+<h3> LOV vs Number of Medications </h3> 
+<img src = "/img/MedsLOV.jpeg"></p>
+<table> <tr> Coefficients: </tr>
+<tr> <td></td> <td>Estimate Std.</td> <td> Error t value </td> <td> Pr(>|t|)</td> </tr>   
+<tr> <td> (Intercept)  </td> <td>4.87431    </td> <td>0.01041</td> <td>  468.41 </td> <td>   2e-16 *** </td> </tr>
+<tr> <td>## TOTDIAG  </td> <td>    0.07826    </td> <td>0.00170   </td> <td>46.03   </td> <td>2e-16 ***</td> </tr>
+</table>
+<p>For both genders, each additional medication administered in the OR is correlated with an ~8% increase in length of visit. This correlation is statistically significant but weak - with an R^2 of only 0.04
+</p>
+
+<h3> LOV vs Number of Diagnostic Tests </h3> 
+<img src = "/img/DiagsLOV.jpeg"></p>
+<table> <tr> Coefficients: </tr>
+<tr> <td></td> <td>Estimate Std.</td> <td> Error t value </td> <td> Pr(>|t|)</td> </tr>   
+<tr> <td> (Intercept)  </td> <td>4.4.813560    </td> <td>0.012903</td> <td>  373.05 </td> <td>   2e-16 *** </td> </tr>
+<tr> <td>## TOTDIAG  </td> <td>   0.081524    </td> <td>0.002113   </td> <td>38.58   </td> <td>2e-16 ***</td> </tr>
+</table>
+<p>For both genders, each additional diagnostic test performed in the ER is also correlated with an ~8% increase in length of visit. This correlation is much stronger - with an R^2 of .19
+</p>
+
+<h3> LOV vs Number of Procedures </h3> 
+<img src = "/img/ProcsLOV.jpeg"></p>
+<table> <tr> Coefficients: </tr>
+<tr> <td></td> <td>Estimate Std.</td> <td> Error t value </td> <td> Pr(>|t|)</td> </tr>   
+<tr> <td> (Intercept)  </td> <td>5.172968    </td> <td>0.009814</td> <td>  527.081</td> <td>   2e-16 *** </td> </tr>
+<tr> <td>## TOTDIAG  </td> <td>   0.025148   </td> <td>0.005129   </td> <td> 4.903  </td> <td>9.69e-07</td> </tr>
+</table>
+<p>Surprisingly for either gender, an increase in number of procedures performed did affect predicted length of visit. 
+</p>
+
+
+</section>
+
+<footer>
+<b>Vidya Bhalodia
+CSCI 107 - 2016 </b>
+</footer>
+
+</body></html>
