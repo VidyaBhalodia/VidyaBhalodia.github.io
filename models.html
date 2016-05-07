@@ -68,9 +68,11 @@ We can see that the 3 variables improved slightly our prediction (over the naive
 
 <h3> Additional Variables </h3>
 <p>Lets see if we get any significant improvement by adding ETHNICITY and RACE, and the #ofMeds, #ofTests & #ofProcedures to our model.</p>
+Using a Logistic Regression model with 5 variables (age, gender, chief complaint, race, ethnicity), we get an RMSE of :  0.3238849
 Out of Sample RMSE for Logistic Regression model with 8 variables (age, gender, chief complaint, ethnicity, race, #med, #diagnostics, #procedures) :  0.3694617  for the test data  <br>
 In Sample RMSE for Logistic Regression model with 8 variables (age, gender, chief complaint, ethnicity, race, #med, #diagnostics, #procedures) :  0.3096667  for the training data <br>
-This model is overfit - it is better at predicting the training data than the test data.
+Adding race and ethnicity to our model did not improve the model. <br> 
+Adding the #meds, diagnostics and procedures to our model is overfit - it is better at predicting the training data than the test data.
 
 <h3> Model for Single Diagnosis </h3>
 Finally lets see if we can predict whether a patient with a specific complaint (abdominal / stomach pain) will be admitted to the hospital. We will take our best model so far and remove the complaint variable from the model. <br>
@@ -79,8 +81,6 @@ Using a Logistic Regression model with 2 variables (age, gender), we get an RMSE
 Out-of-sample RMSE for Logistic Regression model with 7 variables (age, gender, race, ethnicity, meds, diagnostics, procedures) :  0.4185825  for the test data <br>
 In-sample RMSE for Logistic Regression model with 7 variables (age, gender, race, ethnicity, meds, diagnostics, procedures) :  0.353045  for the test data <br>
 It looks like age and gender are minor predictors of hospital admissions given a complaint, however complaint is one of the strongest factors we've looked at to predicting hospital admission.
-
-
 
 </section>
 
