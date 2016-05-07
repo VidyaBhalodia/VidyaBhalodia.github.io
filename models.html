@@ -66,12 +66,13 @@ Using a Logistic Regression model with 3 variables (age, gender, chief complaint
 Using a Logistic Regression model with 3 variables (age, gender, chief complaint) and gender interactions, we get an RMSE of :  0.323531<br>
 We can see that the 3 variables improved slightly our prediction (over the naive model), however adding interactions didn't seem to help. </p>
 
-<h3> Model for a Single Diagnosis</h3>
+<h3> Additional Variables </h3>
 <p>Lets see if we get any significant improvement by adding ETHNICITY and RACE, and the #ofMeds, #ofTests & #ofProcedures to our model.</p>
 Out of Sample RMSE for Logistic Regression model with 8 variables (age, gender, chief complaint, ethnicity, race, #med, #diagnostics, #procedures) :  0.3694617  for the test data  <br>
 In Sample RMSE for Logistic Regression model with 8 variables (age, gender, chief complaint, ethnicity, race, #med, #diagnostics, #procedures) :  0.3096667  for the training data <br>
 This model is overfit - it is better at predicting the training data than the test data.
 
+<h3> Model for Single Diagnosis </h3>
 Finally lets see if we can predict whether a patient with a specific complaint (abdominal / stomach pain) will be admitted to the hospital. We will take our best model so far and remove the complaint variable from the model. <br>
 Using a naive model, we get an RMSE of :  0.3790997  for the test data
 Using a Logistic Regression model with 2 variables (age, gender), we get an RMSE of :  0.3685347  for the test data <br>
