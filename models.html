@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ER Utilization Introduction</title>
+<style>
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:250px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:800px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Emergency Rooms - Who uses them and Why ?</h1>
+</header>
+
+<nav>
+<a href = "index.html">Introduction </a> <br>
+<a href = "demographics.html">General Demographics </a><br>
+<a href = "/gender.html">Gender Specific Analyses</a> <br>
+<a href = "/age.html">Age Specific Analyses</a> <br>
+<a href = "/race.html">Race / Ethnicity Specific Analyses</a> <br>
+<a href = "/erservice.html">ER Services and Visit Duration</a> <br>
+<a href= "/models.html">ER Admissions : Predictive Models</a> <br>
+</nav>
+
+<section>
+<h1>Models to Predict Hospital Admissions from the ER </h1>
+<p>Several studies have shown that hospital admissions secondary to ER visits can boost ER profitability. So we want to create a model that can predict hospital admissions based on ER metrics. We will limit the chief complaint to the top 12 most common (as identified earlier). Our training set will include all the data we have analyzed so far from 2007-2011. Our testing data will be cases from 2006 (which were not used as part of our previous analyses). 
+</p>
+
+<h3>Naive Model </h3>
+<p>Let's build a naive model first. We will predict that the probability of hospital admission for each patient is the same as the global probability of a patient being admitted. We will use data from 2007-2011 as our training set, and make predictions on data from 2006<br>
+The RMSE for a naive model is :  0.3562964</p>
+
+<img src = "/img/GenderByAge.jpeg"> </p>
+
+<h3>Logistic Regression Models</h3>
+<p> To build our first GLM model, we will perform a logistic regression. There is a lot of correlations amongst our variables, so we will start with a simple model first. <br>
+Admission is our binary output variable. Our input variables are gender (binary), age(continuous), and chief complaint</p>
+<img src = "/img/GLM1.jpg"> <br>
+Using a Logistic Regression model with 3 variables (age, gender, chief complaint), we get an RMSE of :  0.3236418 <br>
+Using a Logistic Regression model with 3 variables (age, gender, chief complaint) and Age interactions, we get an RMSE of :  0.3230221 <br>
+Using a Logistic Regression model with 3 variables (age, gender, chief complaint) and gender interactions, we get an RMSE of :  0.323531<br>
+We can see that the 3 variables improved slightly our prediction (over the naive model), however adding interactions didn't seem to help. </p>
+
+<p>Lets see if we get any significant improvement by adding ETHNICITY and RACE, and the #ofMeds, #ofTests & #ofProcedures to our model.</p>
+Out of Sample RMSE for Logistic Regression model with 8 variables (age, gender, chief complaint, ethnicity, race, #med, #diagnostics, #procedures) :  0.3694617  for the test data  <br>
+In Sample RMSE for Logistic Regression model with 8 variables (age, gender, chief complaint, ethnicity, race, #med, #diagnostics, #procedures) :  0.3096667  for the training data <br>
+This model is overfit - it is better at predicting the training data than the test data.
+
+Finally lets see if we can predict whether a patient with a specific complaint (abdominal / stomach pain) will be admitted to the hospital. We will take our best model so far and remove the complaint variable from the model. <br>
+Using a naive model, we get an RMSE of :  0.3790997  for the test data
+Using a Logistic Regression model with 2 variables (age, gender), we get an RMSE of :  0.3685347  for the test data <br>
+Out-of-sample RMSE for Logistic Regression model with 7 variables (age, gender, race, ethnicity, meds, diagnostics, procedures) :  0.4185825  for the test data <br>
+In-sample RMSE for Logistic Regression model with 7 variables (age, gender, race, ethnicity, meds, diagnostics, procedures) :  0.353045  for the test data <br>
+It looks like age and gender are minor predictors of hospital admissions given a complaint, however complaint is one of the strongest factors we've looked at to predicting hospital admission.
+
+
+
+
+
+
+
+
+
+<h3>Age and Arrival By EMS</h3>
+<p>The total number of patients under 18 who arrive in the ER via ambulance is fairly small - one would presume that the vast majority of situations, the child could be transported by parents or other supervisory adult. The number of adults is fairly constant for most ages, however, as age increases, the fraction of patients who arrive via EMS increases - by age 80, more patients arrive in the ER via ambulance rather than not.
+<img src = "/img/EMSByAge.jpeg"> </p>
+
+<h3>Age and Hospital Admissions</h3>
+<p>Interestingly, the fraction of patients admitted to the hospital from the ER increases almost monotonically with age (except among the most elderly where the small sample size skews the data). There are also no remarkable differences between genders and admission rates. 
+<img src = "/img/AdmitByAge.jpeg"> </p>
+
+
+
+
+</section>
+
+<footer>
+<b>Vidya Bhalodia
+CSCI 107 - 2016 </b>
+</footer>
+
+</body></html>
