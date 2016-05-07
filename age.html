@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ER Utilization Introduction</title>
+<style>
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:250px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:550px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Emergency Rooms</h1>
+</header>
+
+<nav>
+<a href = "index.html">Introduction </a> <br>
+<a href = "demographics.html">General Demographics </a><br>
+<a href = "/gender.html">Gender Specific Analyses</a> <br>
+<a href = "/age.html">Age Specific Analyses</a> <br>
+<a href = "/race.html">Race / Ethnicity Specific Analyses</a> <br>
+<a href = "/erservice.html">ER Services and Visit Duration</a> <br>
+<a href= "/models.html">ER Admissions : Predictive Models</a> <br>
+</nav>
+
+<section>
+<h1>Gender Specific Analyses </h1>
+
+<h3>Age Differences in ER Visits </h3>
+<p>Unsurprisingly, young children make up a large fraction of emergency room visits due to their susceptibility to illness and propensity for injury. What I find surprising is that there is such a dramatic difference in ER utilization in women vs men from ages 19 - 50.  The discrepancy in ER utilization in the oldest age ranges (>70) is probably due to the difference in longevity between men and women (more elderly women tend to use the ER than elderly men in this in part because women simply make up a significantly larger fraction of the population at those ages).
+<img src = "/img/GenderByAge.jpeg"> </p>
+
+<h3>Age Differences in Chief Complaint</h3>
+<p> Now we want to see how the diagnoses change with age and gender. We will limit the analyses to the top 12 most common complaints (as defined by the join of top 10 for females, males and combined) What we see is that there is a huge discrepancy in the number of women 19-45 years who present to the ER for abdominal pain. That combined with pregnancy related problems probably are the largest contributors to the gender differences in ER utilization
+<img src = "/img/DiagnosisByAge.jpeg"> </p>
+<p> Another way of looking at it is to find the most common complaint for each age group. We used 5 year groupings.
+<img src = "/img/TopComplaintByAge.jpg"> </p>
+
+<h3>Chief Complaint and Gender</h3>
+<p>Here we identified the 10 most commmon complaints for which patients went to the emergency room. The most common complaints for men and women both were stomach/abdominal pain and cramping, and chest-pain. What is most striking is that 2x as many women as men came to the ER when abdominal pain.
+<img src = "/img/ComplaintByGender.jpeg"> </p>
+
+
+
+
+</section>
+
+<footer>
+<b>Vidya Bhalodia
+CSCI 107 - 2016 </b>
+</footer>
+
+</body></html>
